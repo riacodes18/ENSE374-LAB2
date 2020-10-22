@@ -10,19 +10,19 @@
 
     <title>To do list</title>
   </head>
-
   <link rel=" stylesheet" href="todo.css" />
   <body>
-    <div class="container" style="flex: 1 1 auto">
+    <div class="container" id ="myUL" style="flex: 1 1 auto">
       <h1>To do list</h1>
-
+      <div  id="sepid">
       <div class="input-group" >
         <div class="input-group-prepend">
           <div class="input-group-text">
-            <input type="checkbox" aria-label="Checkbox for following text input"/>
+            <input type="checkbox" aria-label="Checkbox for following text input" checked="checked"/>
           </div>
         </div>
-        <input type="text" class="form-control" aria-label="Text input with checkbox" placeholder="my finished task" />
+        <label class="form-control" aria-label="Text input with checkbox"><s>  my finished task</s></label>
+        <!-- <input type="text" class="form-control" aria-label="Text input with checkbox" placeholder= " my finished task" /> -->
       </div>
 
       <br />
@@ -33,7 +33,8 @@
             <input type="checkbox" class="todo-checkbox" (click)="completeItem()" />
           </div>
         </div>
-        <input type="text"class="form-control" aria-label="Text input with checkbox"placeholder="my unfinished task"/>
+        <!-- <input type="text" id="checkplz" placeholder=""/> -->
+        <label class="form-control" aria-label="Text input with checkbox"> my unfinished task</label>
         <div class="input-group-append">
           <button id="button">Abandon</button>
         </div>
@@ -43,7 +44,7 @@
 
       <div class="input-group" >
         <div class="input-group-prepend"></div>
-        <input type="text"class="form-control" aria-label="Text input with checkbox"placeholder="Someone else's finished"/>
+        <label class="form-control" aria-label="Text input with checkbox"><s> someone else's finished</s></label>
         
       </div>
 
@@ -66,12 +67,12 @@
       </div>
 
       <br />
-      
+       </div>
       <div class="input-group">
         <div class="input-group-prepend"></div>
-        <input type="text"class="form-control" aria-label="Text input with checkbox"placeholder="Enter a new task here"/>
+        <input type="text" id="myinp" class="form-control" aria-label="Text input with checkbox"placeholder="Enter a new task here"/>
         <div class="input-group-append">
-          <button id="addButton"> Add </button>
+          <button id="addButton" onclick="newElement()"> Add </button>
         </div>
         
       </div>
@@ -80,14 +81,44 @@
     </div>
 
 
-         
+       
 
     <script>
   //     $(document).ready(function(){
   // $("#btn1").click(function(){
   //   $("p").append(" <b>Appended text</b>.");
-  // });
-  
+    // });
+    function newElement() {
+    var li = document.createElement("input");
+    var inputValue = document.getElementById("myinp").value;
+    // alert(console.log(inputValue));
+    //var inputValue = 45622;
+    //var divi0= document.createElement("div");
+    var divi= document.createElement("div");
+    divi.classList.add("input-group");
+    var divi1= document.createElement("div");
+    divi1.classList.add("input-group-prepend");
+    document.getElementById("sepid").appendChild(divi);
+    li.classList.add("form-control");
+    li.setAttribute("placeholder", inputValue);
+    li.setAttribute("type", "text");
+    li.setAttribute("aria-label", "Text input with checkbox");
+    divi.appendChild(divi1);
+    divi.appendChild(li);
+    var t = document.createTextNode(inputValue);
+    li.appendChild(t);
+    var br= document.createElement("br");
+    document.getElementById("sepid").appendChild(br);
+    var checkdiv=document.createElement("div");
+    checkdiv.classList.add("input-group-text");
+    
+    var check=document.createElement("input");
+    check.classList.add("todo-checkbox");
+    check.setAttribute("type","checkbox");
+    divi1.appendChild(checkdiv);
+    checkdiv.appendChild(check);
+
+    }
     </script>
 
   </body>

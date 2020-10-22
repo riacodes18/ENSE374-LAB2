@@ -22,7 +22,7 @@
           </div>
         </div>
         <label class="form-control" aria-label="Text input with checkbox"><s>  my finished task</s></label>
-        <!-- <input type="text" class="form-control" aria-label="Text input with checkbox" placeholder= " my finished task" /> -->
+        
       </div>
 
       <br />
@@ -33,7 +33,7 @@
             <input type="checkbox" class="todo-checkbox" (click)="completeItem()" />
           </div>
         </div>
-        <!-- <input type="text" id="checkplz" placeholder=""/> -->
+       
         <label class="form-control" aria-label="Text input with checkbox"> my unfinished task</label>
         <div class="input-group-append">
           <button id="button">Abandon</button>
@@ -84,16 +84,11 @@
        
 
     <script>
-  //     $(document).ready(function(){
-  // $("#btn1").click(function(){
-  //   $("p").append(" <b>Appended text</b>.");
-    // });
+  
     function newElement() {
     var li = document.createElement("input");
     var inputValue = document.getElementById("myinp").value;
-    // alert(console.log(inputValue));
-    //var inputValue = 45622;
-    //var divi0= document.createElement("div");
+    
     var divi= document.createElement("div");
     divi.classList.add("input-group");
     var divi1= document.createElement("div");
